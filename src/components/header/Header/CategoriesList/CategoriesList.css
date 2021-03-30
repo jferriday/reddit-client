@@ -1,0 +1,8 @@
+.catMenu {
+    display: flex;
+    position: fixed;
+}
+
+.catMenuHidden {
+    display: none;
+}

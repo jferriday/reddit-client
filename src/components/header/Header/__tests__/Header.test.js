@@ -14,6 +14,10 @@ describe("header section:", () => {
     test("displays search button", async () => {
         expect(await screen.findByTestId("searchButton")).toBeInTheDocument();
         
+    });
+
+    test('displays "categories" button', async () => {
+        expect(await screen.findByText('Categories')).toBeInTheDocument()
     })
 })
 
@@ -41,6 +45,32 @@ describe("search bar", () => {
         expect(searchBar.value).toBe('');
         
     })
-
-
 })
+
+describe('Categories button functionality', () => {
+    let catBtn;
+    beforeEach(() => {
+        render(<Header />);
+        catBtn = screen.getByText('Categories');
+    });
+
+    test('Clicking "Categories" toggles the CategoryList compoent', () => {
+        const catHeading = screen.getByTestId('cats-list');
+        
+        // should not be rendered first
+        expect(catHeading).not.toHaveClass("catMenu")
+
+        // click to open
+        fireEvent.click(catBtn);
+        expect(catHeading).toHaveClass("catMenu")
+        // click again to close
+        fireEvent.click(catBtn);
+        expect(catHeading).not.toHaveClass("catMenu")
+
+    })
+
+});
+
+
+    // implement test to check that clicking categories button opens the categories pane
+
