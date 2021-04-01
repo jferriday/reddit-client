@@ -21,6 +21,21 @@ const reddit = {
 
     return postArray;
   },
+
+  getPost: async (permalink) => {
+    // reddit API returns an array with 2 elements
+    // at index 0, is the original post
+    // at index 1 is the comments
+    // this function returns an object containing the original post and comments
+    const url = `https://cors-gustavos.herokuapp.com/https://reddit.com${permalink}.json` 
+    const response = await reddit.apiRequest(url);
+    const postDetails = {
+      "post" : response[0].data.children[0],
+      "comments" : response[1].data.children
+    }
+
+    return postDetails;
+  }
 };
 
 export default reddit;

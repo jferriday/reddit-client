@@ -13,10 +13,28 @@ test("Search returns array of posts", async () => {
 
 describe('Subreddits', () => {
     const subreddit = 'surfing'
-    test('Returns posts with correct category', () => {
-        const categoryResults = reddit.searchSubreddit(subreddit);
+    test('Returns array of posts from a subreddit', async () => {
+        const categoryResults = await reddit.searchSubreddit(subreddit);
         // wcategoryResults should be an array of children returned from response object
-        expect(categoryResults[0].data.subreddit).toBe('surfing');
+        expect(getType(categoryResults)).toBe('array');
     });
+})
+
+describe('Getting single post',  () => {
+    let postObject;
+    beforeAll(async () => {
+    postObject = await reddit.getPost('/r/surfing/comments/m7a89s/fantasy_teams/');
+    });
+    test('Returns single post as object', () => {
+        // subject to change, mock this in future
+        expect(getType(postObject)).toBe("object");
+    });
+
+    test('post object .post returns an object containing original post', () => {
+        expect(getType(postObject.post)).toBe("object");
+    });
+    test('post object contains an array of commnets', () => {
+        expect(getType(postObject.comments)).toBe('array');
+    })
 })
 
