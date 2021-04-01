@@ -1,9 +1,10 @@
 
-function MainContainer() {
+import PostList from '../PostList/PostList';
 
+function MainContainer() {
     return (
-        <div>
-            
+        <div data-testid="main-container" className="main-container"> 
+            <PostList />
         </div>
     );
 }
