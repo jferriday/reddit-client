@@ -86,4 +86,4 @@ export const searchBySubreddit = (subreddit) => async (dispatch) => {
 }
 
 
-export default redditSlice;
+export default redditSlice.reducer;
