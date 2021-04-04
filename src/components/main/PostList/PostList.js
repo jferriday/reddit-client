@@ -19,23 +19,28 @@ function PostList(props) {
     posts = props.posts
     } else{
         posts = [{
-            title: "Nothing to see here",
-            text: "",
-            image: ""
+            data: {
+                title: "Nothing to see here",
+                text: "",
+                image: ""
+        }
         }];
     };
+
+    
 
     return(
         <div data-testid="post-list" className="post-list">
             {
             posts.map((post) => {
+                // extract data from each post object
                 return(
                 <PostContainer
-                data-testid={post.title}
-                key={post.title}
-                title={post.title}
-                textContent={post.text}
-                image={post.image}
+                data-testid={post.data.title}
+                key={post.data.id}
+                title={post.data.title}
+                textContent={post.data.selftext}
+                image={post.data.url}
                 />
                 )
             })

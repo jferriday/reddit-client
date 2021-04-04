@@ -6,7 +6,7 @@ const initialState = {
     isLoading: false,
     failedLoading: false,
     searchTerm: '',
-    selectedSubreddit: '',
+    selectedSubreddit: 'popular',
 
 
 }
@@ -31,13 +31,13 @@ const redditSlice = createSlice({
         },
         // updates the posts array with the payload
         setPosts(state, action) {
-            state.posts = action.payload.posts;
+            state.posts = action.payload;
         },
         setSearchTerm(state, action) {
-            state.searchTerm = action.payload.searchTerm;
+            state.searchTerm = action.payload;
         },
         setSelectedSubreddit(state, action) {
-            state.selectedSubreddit = action.payload.selectedSubreddit;
+            state.selectedSubreddit = action.payload;
         }
 
     }
@@ -74,7 +74,7 @@ export const searchBySubreddit = (subreddit) => async (dispatch) => {
         // dispatch action to update state with loading status
         dispatch(startSearchPosts());
         // get posts array from reddit.js...
-        const posts = reddit.searchSubreddit(subreddit);
+        const posts = await reddit.searchSubreddit(subreddit);
         // ...and dispatch setPosts with the post array as paload
         dispatch(setPosts(posts));
         // update state with successful search
@@ -84,6 +84,13 @@ export const searchBySubreddit = (subreddit) => async (dispatch) => {
         dispatch(searchPostsFailed());
     }
 }
+
+// selectors
+export const selectPosts = (state) => state.reddit.posts;
+export const selectIsLoading = state => state.reddit.isLoading;
+export const selectFailedLoading = state => state.reddit.failedLoading;
+export const selectSearchTerm = state => state.reddit.searchTerm;
+export const selectSelectedSubreddit = state => state.reddit.selectedSubreddit;
 
 
 export default redditSlice.reducer;

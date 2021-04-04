@@ -8,6 +8,8 @@ function Header() {
   const [searchTerm, setSearchTerm] = useState("");
   const [showCatMenu, setShowCatMenu] = useState(false);
 
+  const subreddits = ['askReddit', 'aww', 'funny', 'pics', 'todayilearned', 'news', 'showerthoughts', 'askscience', 'explainlikeimfive', 'dogs']
+
 
   const handleSearch = (e) => {
     e.preventDefault();
@@ -46,7 +48,8 @@ function Header() {
         <button className="categories button" onClick={toggleCategories}>Categories</button>
         </div>
         
-          <CategoriesList 
+          <CategoriesList
+          categories = {subreddits} 
           visible={showCatMenu}
           />
         

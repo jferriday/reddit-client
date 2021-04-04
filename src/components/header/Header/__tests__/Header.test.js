@@ -47,7 +47,7 @@ describe("search bar", () => {
     })
 })
 
-describe('Categories button functionality', () => {
+describe('Categories section', () => {
     let catBtn;
     beforeEach(() => {
         render(<Header />);
@@ -66,7 +66,9 @@ describe('Categories button functionality', () => {
         // click again to close
         fireEvent.click(catBtn);
         expect(catHeading).not.toHaveClass("catMenu")
-
+    })
+    test('displays initial searchable categories', () => {
+        expect('askreddit').toBeInTheDocument();
     })
 
 });
