@@ -69,6 +69,10 @@ export const searchByTerm = (searchTerm) => async (dispatch) => {
     }
 }
 
+export const updateSearchTerm = (searchTerm) => async (dispatch) => {
+    await dispatch(setSearchTerm(searchTerm));
+}
+
 export const searchBySubreddit = (subreddit) => async (dispatch) => {
     try {
         // dispatch action to update state with loading status
