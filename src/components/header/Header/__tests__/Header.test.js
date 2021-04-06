@@ -1,11 +1,13 @@
-import {fireEvent, render, screen } from '@testing-library/react';
+import {fireEvent, getByText, render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
 import React from 'react';
 import Header from '../Header';
+import store from '../../../../store/store';
+import {Provider} from 'react-redux';
 
 describe("header section:", () => {
     beforeEach(() => {
-        render(<Header />)
+        render(<Provider store={store}><Header /></Provider>)
     })
     test("displays search field", async () => {
         expect(await screen.findByTestId("search")).toBeInTheDocument();
@@ -23,7 +25,7 @@ describe("header section:", () => {
 
 describe("search bar", () => {
     beforeEach(() => {
-        render(<Header />)
+        render(<Provider store={store}><Header /></Provider>)
     });
 
     test('renders search term', async () => {
@@ -50,7 +52,7 @@ describe("search bar", () => {
 describe('Categories section', () => {
     let catBtn;
     beforeEach(() => {
-        render(<Header />);
+        render(<Provider store={store}><Header /></Provider>);
         catBtn = screen.getByText('Categories');
     });
 
@@ -67,8 +69,8 @@ describe('Categories section', () => {
         fireEvent.click(catBtn);
         expect(catHeading).not.toHaveClass("catMenu")
     })
-    test('displays initial searchable categories', () => {
-        expect('askreddit').toBeInTheDocument();
+    test('displays initial searchable categories', async () => {
+        expect(await screen.findByText('askreddit')).toBeInTheDocument();
     })
 
 });

@@ -8,7 +8,7 @@ function Header() {
   const [searchTerm, setSearchTerm] = useState("");
   const [showCatMenu, setShowCatMenu] = useState(false);
 
-  const subreddits = ['askReddit', 'aww', 'funny', 'pics', 'todayilearned', 'news', 'showerthoughts', 'askscience', 'explainlikeimfive', 'dogs']
+  const subreddits = ['askreddit', 'aww', 'funny', 'pics', 'todayilearned', 'news', 'showerthoughts', 'askscience', 'explainlikeimfive', 'dogs']
 
 
   const handleSearch = (e) => {
