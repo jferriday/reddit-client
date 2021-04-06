@@ -28,24 +28,29 @@ const activePostSlice = createSlice({
     },
 
     setActivePostUrl(state, action) {
-      state.postPermalink = action.payload.url;
+      state.postPermalink = action.payload;
     },
 
     setActivePost(state, action) {
-      state.activePost = action.payload.activePost;
+      state.activePost = action.payload;
     },
   },
 });
 
+export const updateActivePost = (permalink) => async (dispatch) => {
+  dispatch(setActivePostUrl(permalink));
+}
+
 export const getActivePost = () => async (dispatch) => {
   try {
     // gets the permalink from the store, which will have been set previously by action during click on post
+    console.log("getting active post")
     const permalink = store.getState().activePost.postPermalink;
     // update state with loading state
     dispatch(startFetchPost());
     // gets the post from reddit api
     // post must be an object containing the post
-    const post = reddit.getPost(permalink);
+    const post = await reddit.getPost(permalink);
     // sets the active post to the one fetched. This part of state is used by components to render the post
     dispatch(setActivePost(post));
     dispatch(fetchPostSuccess());

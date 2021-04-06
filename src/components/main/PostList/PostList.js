@@ -41,6 +41,7 @@ function PostList(props) {
                 title={post.data.title}
                 textContent={post.data.selftext}
                 image={post.data.url}
+                permalink={post.data.permalink}
                 />
                 )
             })
