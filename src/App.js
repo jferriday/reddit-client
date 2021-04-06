@@ -3,19 +3,24 @@ import reddit from './utils/reddit/reddit';
 import MainContainer from './components/main/MainContainer/MainContainer.js';
 import Header from './components/header/Header/Header.js';
 import PostPage from './components/PostPage/PostPage'
+import {BrowserRouter, Route} from 'react-router-dom';
+import {useSelector} from 'react-redux';
 
 function App() {
+  const activePost = useSelector(state => state.activePost);
+  const activePostUrl = activePost.postPermalink
   return (
-    <div className="App" data-testid="app">
-      <button onClick={() => {reddit.searchPosts("dogs")}} >Search for dogs</button>
-      <header className="App-header">
-        <Header data-testid="header" />
-      </header>
-      <main>
-      <MainContainer data-testid="main-container" />
-      </main>
-      <PostPage />
-    </div>
+    <BrowserRouter>
+      <div className="App" data-testid="app">
+        <header className="App-header">
+          <Header data-testid="header" />
+        </header>
+        <main>
+        <Route exact path="/" component={MainContainer} data-testid="main-container" />
+        <Route path={'viewpost'} component={PostPage} />
+        </main>
+      </div>
+    </BrowserRouter>
   );
 }
 

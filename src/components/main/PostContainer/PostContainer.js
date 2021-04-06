@@ -1,9 +1,11 @@
 import React from 'react';
 import {updateActivePost, getActivePost} from '../../../store/activePostSlice';
-import {useDispatch} from 'react-redux';
+import {useDispatch, useSelector} from 'react-redux';
+import { Link } from 'react-router-dom';
 
 function PostContainer({title, textContent, image, permalink }) {
     const dispatch = useDispatch()
+   
 
     const setAsActivePost = async (e) => {
         e.preventDefault()
@@ -13,8 +15,10 @@ function PostContainer({title, textContent, image, permalink }) {
 
     return (
         <div className="post-container" onClick={setAsActivePost}>
+            <Link to={`/viewpost`}>
             <h3 data-testid="post-title">{title}</h3>
             {image ? <img data-testid="post-img" src={image} alt=""/> : null}
+            </Link>
             <p data-testid = "text-content">{textContent}</p>
 
         </div>
