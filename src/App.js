@@ -7,8 +7,6 @@ import {BrowserRouter, Route} from 'react-router-dom';
 import {useSelector} from 'react-redux';
 
 function App() {
-  const activePost = useSelector(state => state.activePost);
-  const activePostUrl = activePost.postPermalink
   return (
     <BrowserRouter>
       <div className="App" data-testid="app">
@@ -17,7 +15,7 @@ function App() {
         </header>
         <main>
         <Route exact path="/" component={MainContainer} data-testid="main-container" />
-        <Route path={'viewpost'} component={PostPage} />
+        <Route path={'/viewpost'} component={PostPage} />
         </main>
       </div>
     </BrowserRouter>

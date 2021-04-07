@@ -1,6 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 import reddit from "../utils/reddit/reddit";
 import store from "./store";
+import {browserHistory} from 'react-router';
 
 const initialState = {
   postPermalink: "",
@@ -38,7 +39,10 @@ const activePostSlice = createSlice({
 });
 
 export const updateActivePost = (permalink) => async (dispatch) => {
-  dispatch(setActivePostUrl(permalink));
+  await dispatch(setActivePostUrl(permalink));
+  
+  
+
 }
 
 export const getActivePost = () => async (dispatch) => {

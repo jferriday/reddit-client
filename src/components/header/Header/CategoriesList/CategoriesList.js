@@ -2,6 +2,7 @@ import React from 'react';
 import './CategoriesList.css';
 import {useDispatch} from 'react-redux';
 import {setSelectedSubreddit} from '../../../../store/redditSlice';
+import {Link} from 'react-router-dom';
 
 
 function CategoriesList(props) {
@@ -22,12 +23,14 @@ function CategoriesList(props) {
                 {categories.map(category => {
                     return(
                         <li key={category}>
-                            <button
-                            onClick={handleCategoryChange}
-                            value = {category}
-                            >
+                            <Link to='/'>
+                                <button
+                                onClick={handleCategoryChange}
+                                value = {category}
+                                >
                             {category}
                             </button>
+                            </Link>
                         </li>
                     )
                 })
