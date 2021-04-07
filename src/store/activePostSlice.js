@@ -66,7 +66,7 @@ export const getActivePost = () => async (dispatch) => {
 
 // selectors
 // active post and comments are both stored in 'activePost'. Use selectors to grab the required object/array
-export const selectActivePost = (state) => state.activePost.activePost[0];
+export const selectActivePost = (state) => state.activePost[0];
 export const selectActivePostComments = state => state.activePost.activePost[1];
 export const selectPostPermalink = state => state.activePost.permalink;
 
