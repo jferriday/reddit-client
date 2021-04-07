@@ -1,17 +1,23 @@
 import React from 'react';
-import {updateActivePost, getActivePost} from '../../../store/activePostSlice';
+import {updateActivePost, getActivePost, setActivePost} from '../../../store/activePostSlice';
 import {useDispatch, useSelector} from 'react-redux';
 import { Link, useHistory} from 'react-router-dom';
 
-function PostContainer({title, textContent, image, permalink }) {
+function PostContainer({title, textContent, image, permalink, displaysActive }) {
     const dispatch = useDispatch()
     const history = useHistory();
 
     const handlePostSelection = async (e) => {
         e.preventDefault();
+        // check to see if the components is displayling the current active post. Is true, do nothing. If false, navigate to active post
+        if (displaysActive === false) {
+            // below dispatch clears the active post to avoid any previous one showing up when a post is clicked
+        dispatch(setActivePost({}));
+        // this line sets the active post to the one which has just been clicked
         await setAsActivePost();
          // once active post is set in state, navigate to the active post
          history.push('/viewpost');
+        }
     }   
     const setAsActivePost = async (e) => {
        

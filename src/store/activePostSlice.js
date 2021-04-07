@@ -40,10 +40,8 @@ const activePostSlice = createSlice({
 
 export const updateActivePost = (permalink) => async (dispatch) => {
   await dispatch(setActivePostUrl(permalink));
-  
-  
-
 }
+
 
 export const getActivePost = () => async (dispatch) => {
   try {

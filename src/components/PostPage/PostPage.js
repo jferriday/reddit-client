@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect} from "react";
 import PostContainer from '../main/PostContainer/PostContainer';
 import {useSelector} from 'react-redux';
 import Loader from 'react-loader-spinner';
@@ -35,6 +35,7 @@ function PostPage() {
           title={post.data.title}
           textContent={post.data.selftext}
           image={post.data.url}
+          displaysActive={true}
         />
       </div>
     );

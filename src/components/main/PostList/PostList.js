@@ -42,6 +42,7 @@ function PostList(props) {
                 textContent={post.data.selftext}
                 image={post.data.url}
                 permalink={post.data.permalink}
+                displaysActive={false}
                 />
                 )
             })
