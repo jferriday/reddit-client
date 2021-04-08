@@ -2,10 +2,12 @@ import React, {useEffect} from "react";
 import PostContainer from '../main/PostContainer/PostContainer';
 import {useSelector} from 'react-redux';
 import Loader from 'react-loader-spinner';
+import { Link, useHistory } from "react-router-dom";
 
 
 function PostPage() {
     const activePost = useSelector(state => state.activePost.activePost);
+    const history = useHistory();
     console.log(activePost);
     let post;
     let comments;
@@ -19,6 +21,11 @@ function PostPage() {
             url: ""
         }};
     };
+
+    const goBack = (e) => {
+      e.preventDefault()
+     history.push("/");
+    }
     
     while(!post) {
       return (
@@ -29,14 +36,19 @@ function PostPage() {
     }
     console.log(activePost);
     return (
-      <div data-testid="post-container">
-            <h1>post</h1>
-        <PostContainer
-          title={post.data.title}
-          textContent={post.data.selftext}
-          image={post.data.url}
-          displaysActive={true}
-        />
+      <div>
+        <Link to="/">
+        <button className="back" onClick={goBack}>Back</button>
+        </Link>
+        <div data-testid="post-container">
+              <h1>post</h1>
+          <PostContainer
+            title={post.data.title}
+            textContent={post.data.selftext}
+            image={post.data.url}
+            displaysActive={true}
+          />
+        </div>
       </div>
     );
   
