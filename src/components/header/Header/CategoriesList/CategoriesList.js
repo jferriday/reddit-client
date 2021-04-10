@@ -19,12 +19,13 @@ function CategoriesList(props) {
 
     return(
         <div data-testid="cats-list" className={visible ? 'catMenu' : 'catMenuHidden'}>
-            <ul>
+            <ul className="cats-list">
                 {categories.map(category => {
                     return(
                         <li key={category}>
                             <Link to='/'>
                                 <button
+                                className="cat-button"
                                 onClick={handleCategoryChange}
                                 value = {category}
                                 >

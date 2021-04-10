@@ -1,7 +1,8 @@
 import React from 'react';
 import {updateActivePost, getActivePost, setActivePost} from '../../../store/activePostSlice';
-import {useDispatch, useSelector} from 'react-redux';
-import { Link, useHistory} from 'react-router-dom';
+import {useDispatch} from 'react-redux';
+import { useHistory} from 'react-router-dom';
+import './PostContainer.css'
 
 function PostContainer({title, textContent, image, permalink, displaysActive }) {
     const dispatch = useDispatch()
@@ -34,7 +35,7 @@ function PostContainer({title, textContent, image, permalink, displaysActive }) 
     return (
         <div className="post-container" onClick={handlePostSelection}>
           
-            <h3 data-testid="post-title">{title}</h3>
+            <h3 data-testid="post-title" className="post-title">{title}</h3>
             {image ? <img data-testid="post-img" src={image} alt=""/> : null}
         
             <p data-testid = "text-content">{textContent}</p>

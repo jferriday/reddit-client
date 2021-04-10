@@ -1,8 +1,45 @@
 .catMenu {
-    display: flex;
+    width: 300px;
+   
     position: fixed;
+   
 }
 
 .catMenuHidden {
     display: none;
+}
+
+.cats-list{
+    max-width: 100%;
+    padding: 0;
+    text-decoration: none;
+    list-style-type: none;
+    
+}
+
+.cats-list li {
+    height: 40px;
+    width: 100%;
+    border-bottom: gray solid 1px; 
+    transition: 200ms;
+}
+
+
+.cat-button {
+    font-size: 1.5rem;
+    margin: 5px;
+    color: slategray;
+    width: 100%;
+    height: 80%;
+    text-align: center;
+    border: none;
+    background:#EAEAEA;
+    transition: color 250ms;
+}
+.cat-button:hover {
+    outline: none;
+    color: #3a82ee
+}
+.cat-button:focus {
+    color: #2158aa;
 }

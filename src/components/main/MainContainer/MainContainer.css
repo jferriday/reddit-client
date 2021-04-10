@@ -1,0 +1,14 @@
+.main-container {
+    margin: auto;
+    text-align: justify;
+    max-width: 100vw;
+    overflow-x: hidden;
+    padding: 10% 5%;
+    background-color: #fff;
+}
+
+@media only screen and (min-width: 1600px) {
+    .main-container {
+        max-width: 1600px;
+    }
+}

@@ -4,6 +4,7 @@ import { useSelector, useDispatch, } from 'react-redux'
 import { useEffect } from 'react';
 import { selectPosts, selectSelectedSubreddit, searchBySubreddit, searchByTerm, selectSearchTerm } from '../../../store/redditSlice';
 
+import './MainContainer.css'
 
 function MainContainer() {
     // state objects to be used here

@@ -4,6 +4,7 @@ import "./Header.css";
 import CategoriesList from "./CategoriesList/CategoriesList";
 import { updateSearchTerm } from "../../../store/redditSlice";
 import { useDispatch } from "react-redux";
+import { Link } from "react-router-dom";
 
 function Header() {
   const [searchTerm, setSearchTerm] = useState("");
@@ -49,12 +50,16 @@ function Header() {
   };
 
   return (
-    <div>
+    <div className="header-all">
       <div className="header">
         <div className="flex-spacer" ></div>
-        <h1>
-          Reddit <span className="mini">Mini</span>
-        </h1>
+        
+          <h1> 
+            <Link to="/">
+            Reddit <span className="mini">Mini</span>
+            </Link>
+          </h1>
+      
         <div className="flex-spacer">
         <button className="button-clear material-icons" onClick={toggleCategories}>
           menu
@@ -74,7 +79,7 @@ function Header() {
             value={searchTerm}
             placeholder="Search Reddit..."
           />
-          <button className="search-button material-icons" type="submit" data-testid="searchButton" onClick={handleSearch}>
+          <button className="search-button button-clear material-icons" type="submit" data-testid="searchButton" onClick={handleSearch}>
           search
           </button>
         </div>
