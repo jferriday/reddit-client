@@ -47,6 +47,10 @@ function PostPage() {
             textContent={post.data.selftext}
             image={post.data.url}
             displaysActive={true}
+            permalink={post.data.permalink}
+            subredditName={post.data.subreddit_name_prefixed}
+            isVideo={post.data.is_video}
+            videoUrl={post.data.is_video ? post.data.media.reddit_video.fallback_url : '' }
           />
         </div>
       </div>

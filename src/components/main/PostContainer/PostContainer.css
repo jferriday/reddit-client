@@ -1,4 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Tienne:wght@400;700&display=swap');
+
 .post-container {
+    border-radius: 2px;
     padding: 2.5rem;
     margin: 25px 10px;
     box-shadow: 2px 2px 8px 6px rgb(194, 194, 194);
@@ -7,5 +10,27 @@
 }
 
 .post-title {
+    font-family: 'Tienne', serif;
+    text-align: left;
+    font-weight: bold;
+    font-size: 1.5rem;
     margin-top: 0;
+}
+
+.post-img {
+    border-radius: 2px;
+}
+
+.post-text {
+    
+    word-wrap: break-word;
+    font-family: 'Tienne', serif;
+}
+
+.subreddit-name {
+    font-family: 'Tienne', serif;
+    text-transform: lowercase;
+    font-size: 1rem;
+    color: rgb(180, 180, 180);
+    margin: 5px 0;
 }

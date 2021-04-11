@@ -2,9 +2,10 @@ import React from 'react';
 import {updateActivePost, getActivePost, setActivePost} from '../../../store/activePostSlice';
 import {useDispatch} from 'react-redux';
 import { useHistory} from 'react-router-dom';
+import ReactPlayer from 'react-player';
 import './PostContainer.css'
 
-function PostContainer({title, textContent, image, permalink, displaysActive }) {
+function PostContainer({title, textContent, image, permalink, subredditName, isVideo, videoUrl, displaysActive }) {
     const dispatch = useDispatch()
     const history = useHistory();
 
@@ -34,11 +35,16 @@ function PostContainer({title, textContent, image, permalink, displaysActive }) 
 
     return (
         <div className="post-container" onClick={handlePostSelection}>
-          
+            <h4 className="subreddit-name">{subredditName}</h4>          
             <h3 data-testid="post-title" className="post-title">{title}</h3>
-            {image ? <img data-testid="post-img" src={image} alt=""/> : null}
+            {isVideo ?
+            <video controls>
+                <source src={videoUrl}></source>
+            </video>
+            : null }
+            {image ? <img data-testid="post-img" className="post-img" src={image} alt=""/> : null}
         
-            <p data-testid = "text-content">{textContent}</p>
+            <p data-testid="text-content" className="post-text">{textContent}</p>
 
         </div>
     )
