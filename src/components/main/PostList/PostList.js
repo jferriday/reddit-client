@@ -46,6 +46,8 @@ function PostList(props) {
                 isVideo={post.data.is_video}
                 videoUrl={post.data.is_video ? post.data.media.reddit_video.fallback_url : '' }
                 displaysActive={false}
+                user={post.data.author}
+                comments={post.data.num_comments}
                 />
                 )
             })

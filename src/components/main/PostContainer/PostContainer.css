@@ -34,3 +34,20 @@
     color: rgb(180, 180, 180);
     margin: 5px 0;
 }
+
+.post-details {
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    display: flex;
+    vertical-align:middle;
+
+}
+
+#bubble {
+    vertical-align: middle;
+}
+
+#speech {
+    background-image: src('./');
+}
