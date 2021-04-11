@@ -34,23 +34,24 @@ function PostList(props) {
             {
             posts.map((post) => {
                 // extract data from each post object
-                return(
-                <PostContainer
-                data-testid={post.data.title}
-                key={post.data.id}
-                title={post.data.title}
-                textContent={post.data.selftext}
-                image={post.data.url}
-                permalink={post.data.permalink}
-                subredditName={post.data.subreddit_name_prefixed}
-                isVideo={post.data.is_video}
-                videoUrl={post.data.is_video ? post.data.media.reddit_video.fallback_url : '' }
-                displaysActive={false}
-                user={post.data.author}
-                comments={post.data.num_comments}
-                />
-                )
-            })
+                    return(
+                    <PostContainer
+                    data-testid={post.data.title}
+                    key={post.data.id}
+                    title={post.data.title}
+                    textContent={post.data.selftext}
+                    image={post.data.url}
+                    permalink={post.data.permalink}
+                    subredditName={post.data.subreddit_name_prefixed}
+                    isVideo={post.data.is_video}
+                    videoUrl={post.data.is_video && post.data.secure_media ? post.data.secure_media.reddit_video.fallback_url : '' }
+                    displaysActive={false}
+                    user={post.data.author}
+                    comments={post.data.num_comments}
+                    />
+                    )
+                }
+            )
         }
         </div>
     )
