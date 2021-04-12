@@ -1,8 +1,11 @@
 import React, {useEffect} from "react";
 import PostContainer from '../main/PostContainer/PostContainer';
+import CommentList from '../main/CommentList/CommentList'
 import {useSelector} from 'react-redux';
 import Loader from 'react-loader-spinner';
 import { Link, useHistory } from "react-router-dom";
+import './PostPage.css'
+
 
 
 function PostPage() {
@@ -36,7 +39,7 @@ function PostPage() {
     }
     console.log(activePost);
     return (
-      <div>
+      <div className="post-page">
         <Link to="/">
         <button className="back" onClick={goBack}>Back</button>
         </Link>
@@ -51,7 +54,13 @@ function PostPage() {
             subredditName={post.data.subreddit_name_prefixed}
             isVideo={post.data.is_video}
             videoUrl={post.data.is_video ? post.data.media.reddit_video.fallback_url : '' }
+            user={post.data.author}
+            comments={post.data.num_comments}
           />
+        </div>
+        <div className="commentlist-container">
+          {/* CommentList has own state from store, rendering stateless comments */}
+          <CommentList />
         </div>
       </div>
     );

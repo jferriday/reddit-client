@@ -35,6 +35,14 @@
     margin: 5px 0;
 }
 
+.info {
+    
+        font-family: 'Tienne', serif;
+        font-size: .9rem;
+        color: black;
+        margin: 5px 0;
+}
+
 .post-details {
     align-items: center;
     flex-wrap: wrap;

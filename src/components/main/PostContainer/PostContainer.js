@@ -6,7 +6,7 @@ import {
 } from "../../../store/activePostSlice";
 import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
-import ReactPlayer from "react-player";
+
 import "./PostContainer.css";
 import speechBubble from '../../../icons/question_answer_black_24dp.svg'
 
