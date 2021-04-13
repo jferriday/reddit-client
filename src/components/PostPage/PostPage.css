@@ -12,3 +12,27 @@
         max-width: 1600px;
     }
 }
+
+#back-arrow {
+    font-size: 3.5rem;
+}
+.back {
+    margin : 10px 10px 10px 0;
+    font-size: 28px;
+    color: slategray;
+    width: 60px;
+    height: 60px;
+    text-align: center;
+    border: none;
+    background: transparent;
+    transition: color 250ms;
+    
+}
+
+.back:hover {
+    outline: none;
+    color: #3a82ee
+}
+.back:focus {
+    color: #2158aa;
+}

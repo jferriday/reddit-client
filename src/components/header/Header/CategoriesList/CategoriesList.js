@@ -10,10 +10,12 @@ function CategoriesList(props) {
     let visible = props.visible;
     // list of initial searchable subreddits
     let categories = props.categories
+    const closeNavbar = props.closeNavbar;
 
     function handleCategoryChange(e) {
         console.log(e.target.value)
         dispatch(setSelectedSubreddit(e.target.value));
+        closeNavbar();
 
     }
 

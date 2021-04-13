@@ -41,10 +41,11 @@ function PostPage() {
     return (
       <div className="post-page">
         <Link to="/">
-        <button className="back" onClick={goBack}>Back</button>
+        <button className="back" onClick={goBack}><span id="back-arrow" class=" backBtn material-icons">
+arrow_back
+</span></button>
         </Link>
         <div data-testid="post-container">
-              <h1>post</h1>
           <PostContainer
             title={post.data.title}
             textContent={post.data.selftext}

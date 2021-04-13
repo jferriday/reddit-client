@@ -42,6 +42,13 @@
     background-color: #EAEAEA;
     display: none;
     flex-direction: column;
+
+    animation-name: slide-in-mobile;
+    animation-fill-mode: both;
+    animation-duration: 400ms;
+    animation-direction: alternate;
+
+    
    
 }
 
@@ -54,6 +61,8 @@
     animation-fill-mode: both;
     animation-duration: 400ms;
 }
+
+
 @keyframes slide-in-mobile {
     0% {
         width: 0;

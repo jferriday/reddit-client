@@ -34,6 +34,7 @@ function Header() {
     e.preventDefault();
     // implement dispatch to search here
     setSearchTerm("");
+    toggleCategories();
   };
 
   // when 'categories' button is clicked, toggles categories menu
@@ -84,7 +85,7 @@ function Header() {
           </button>
         </div>
         <div className="subreddit-list">
-          <CategoriesList categories={subreddits} visible={showCatMenu} />
+          <CategoriesList categories={subreddits} visible={showCatMenu} closeNavbar={toggleCategories} />
         </div>      
       </div>
     </div>
