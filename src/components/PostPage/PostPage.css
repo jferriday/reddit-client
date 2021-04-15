@@ -29,10 +29,17 @@
     
 }
 
+
 .back:hover {
     outline: none;
     color: #3a82ee
 }
 .back:focus {
     color: #2158aa;
+}
+
+.loading {
+    width: 100%;
+    text-align: center;
+    padding-top: 12rem;
 }

@@ -1,6 +1,6 @@
 import PostList from '../PostList/PostList';
 import { useSelector, useDispatch, } from 'react-redux'
-
+import Loader from 'react-loader-spinner';
 import { useEffect } from 'react';
 import { selectPosts, selectSelectedSubreddit, searchBySubreddit, searchByTerm, selectSearchTerm } from '../../../store/redditSlice';
 
@@ -22,8 +22,6 @@ function MainContainer() {
         dispatch(searchByTerm(searchTerm))
     }, [searchTerm]);
 
-    console.log(posts)
-    
     return (
         <div data-testid="main-container" className="main-container"> 
             <PostList posts={posts} />

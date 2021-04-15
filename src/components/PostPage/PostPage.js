@@ -33,7 +33,7 @@ function PostPage() {
     while(!post) {
       return (
         <div className="loading" >
-          <Loader type="Puff" color="#0000FF" height={80} width={80} />
+          <Loader type="Puff" color="#0000FF" height={120} width={80} />
         </div>
       )
     }
